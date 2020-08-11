@@ -1,39 +1,68 @@
-# RailsDeferrable
+# RunLater
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rails_deferrable`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Run any instance_method of ActiveRecord models via a job by adding `_later` to it.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add to your Gemfile
 
-```ruby
-gem 'rails_deferrable'
-```
-
-And then execute:
-
-    $ bundle install
+    $ bundle add run_later
 
 Or install it yourself as:
 
-    $ gem install rails_deferrable
+    $ gem install run_later
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Include the `RunLater::Concern` in your model
+2. Call instance methods with `_later`
 
-## Development
+```rb
+class User < ApplicationRecord
+  include RunLater::Concern
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+  after_create_commit :notify_user_later
+  after_commit :refresh_cache_later
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+  private
+
+  def notify_user
+    # External services
+    Sms.send(to: user.phone, message: 'Hey!')
+  end
+
+  def refresh_cache!
+    # Expensive calculation
+  end
+end
+```
+
+To set the queue to any other than the `default` set it like this:
+
+```rb
+class User < ApplicationRecord
+  include RunLater::Concern
+
+  run_in_queue :low
+end
+```
+
+If you need callbacks, they are provided as standart model callbacks:
+
+```rb
+class User < ApplicationRecord
+  include RunLater::Concern
+
+  before_run_later :do_something
+  after_run_later :do_something_more
+  around_run_later :do_something_around
+  # Etc..
+end
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/rails_deferrable. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/rails_deferrable/blob/master/CODE_OF_CONDUCT.md).
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/kieranklaassen/run_later. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/kieranklaassen/run_later/blob/master/CODE_OF_CONDUCT.md).
 
 ## License
 
@@ -41,4 +70,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the RailsDeferrable project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/rails_deferrable/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the RunLater project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/kieranklaassen/run_later/blob/master/CODE_OF_CONDUCT.md).
