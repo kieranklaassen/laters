@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "rails_deferrable"
+require "run_later"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

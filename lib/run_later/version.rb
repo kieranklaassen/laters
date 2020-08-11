@@ -1,3 +1,3 @@
-module RailsDeferrable
+module RunLater
   VERSION = "0.1.0"
 end

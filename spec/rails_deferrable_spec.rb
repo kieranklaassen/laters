@@ -1,6 +1,6 @@
-RSpec.describe RailsDeferrable do
+RSpec.describe RunLater do
   it "has a version number" do
-    expect(RailsDeferrable::VERSION).not_to be nil
+    expect(RunLater::VERSION).not_to be nil
   end
 
   it "does something useful" do

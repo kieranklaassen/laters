@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in rails_deferrable.gemspec
+# Specify your gem's dependencies in run_later.gemspec
 gemspec
 
 gem "rake", "~> 12.0"
