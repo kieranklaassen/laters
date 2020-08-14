@@ -16,11 +16,11 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = "https://github.com/kieranklaassen/run_later"
   spec.metadata["changelog_uri"] = "https://github.com/kieranklaassen/run_later/blob/master/CHANGELOG.md"
 
-  s.files = Dir[
+  spec.files = Dir[
     "app/**/*",
     "LICENSE.txt",
     "Rakefile",
     "README.md",
   ]
-  s.add_dependency "rails", ">= 4.2"
+  spec.add_dependency "rails", ">= 4.2"
 end
