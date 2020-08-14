@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
     "README.md",
   ]
   spec.add_dependency "rails", ">= 4.2"
+  spec.add_development_dependency 'combustion', '~> 1.3'
 end
