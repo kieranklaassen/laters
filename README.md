@@ -3,6 +3,8 @@
 Run any instance_method of ActiveRecord models via a job by adding `_later` to it. Laters 👋, means See you later in
 Dutch 🇳🇱
 
+[![Actions Status](https://github.com/kieranklaassen/laters/workflows/build/badge.svg)](https://github.com/kieranklaassen/laters/actions)
+
 ## Installation
 
 Add to your Gemfile
