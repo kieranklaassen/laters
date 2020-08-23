@@ -1,4 +1,4 @@
-require 'run_later/version'
+require 'laters/version'
 require 'active_model'
 require 'active_job'
 require 'zeitwerk'
@@ -7,7 +7,7 @@ loader.push_dir('app/models/concerns')
 loader.push_dir('app/jobs')
 loader.setup
 
-module RunLater
+module Laters
   class Error < StandardError; end
 end
 

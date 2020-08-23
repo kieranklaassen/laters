@@ -1,7 +1,7 @@
 require 'bundler/setup'
 Bundler.require :default, :development
 
-require 'run_later'
+require 'laters'
 
 Combustion.initialize! :active_record, :active_job
 require 'rspec/rails'

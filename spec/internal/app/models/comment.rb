@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  include RunLater::Concern
+  include Laters::Concern
   run_in_queue :low
 
   def call_me

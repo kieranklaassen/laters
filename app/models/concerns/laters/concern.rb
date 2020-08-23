@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-module RunLater
+module Laters
   module Concern
     extend ActiveSupport::Concern
     include ActiveModel::Callbacks
 
-    included { define_model_callbacks :run_later }
+    included { define_model_callbacks :laters }
 
     class_methods do
       attr_reader :job_queue

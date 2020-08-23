@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in run_later.gemspec
+# Specify your gem's dependencies in laters.gemspec
 gemspec
 
 gem "rails", "~> 6.0.0"

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    run_later (0.1.0)
+    laters (0.1.0)
       rails (>= 4.2)
       zeitwerk
 
@@ -190,7 +190,7 @@ DEPENDENCIES
   rspec (~> 3.0)
   rspec-rails
   rubocop (~> 0.89.1)
-  run_later!
+  laters!
   sqlite3
 
 BUNDLED WITH

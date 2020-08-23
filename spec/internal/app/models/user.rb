@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
-  include RunLater::Concern
+  include Laters::Concern
 
   def crash
-    raise RunLater::Error
+    raise Laters::Error
   end
 
   def upcase!
