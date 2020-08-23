@@ -4,6 +4,7 @@ Run any instance_method of ActiveRecord models via a job by adding `_later` to i
 Dutch 🇳🇱
 
 [![Actions Status](https://github.com/kieranklaassen/laters/workflows/build/badge.svg)](https://github.com/kieranklaassen/laters/actions)
+[![Gem Version](https://badge.fury.io/rb/laters.svg)](https://badge.fury.io/rb/laters)
 
 ## Installation
 
