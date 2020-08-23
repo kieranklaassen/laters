@@ -3,7 +3,7 @@ RSpec.describe RunLater do
     expect(RunLater::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  describe User do
+    it { is_expected.to have_attributes(name: 'Kieran') }
   end
 end
