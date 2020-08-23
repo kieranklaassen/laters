@@ -10,15 +10,23 @@ RSpec.describe RunLater do
       expect(subject).to respond_to(:upcase_later)
     end
 
-    describe '#upcase_later' do
+    describe 'User#upcase_later' do
       it 'queues the instance method job' do
-        expect { subject.upcase_later }.to have_enqueued_job(RunLater::InstanceMethodJob).with(subject, 'upcase!').exactly(:once)
+        expect { subject.upcase_later }.to have_enqueued_job(RunLater::InstanceMethodJob).with(subject, 'upcase!').exactly(:once).on_queue(:default)
       end
     end
 
-    describe '#crash_later' do
+    describe 'User#crash_later' do
       it 'queues the instance method job' do
-        expect { subject.crash_later }.to have_enqueued_job(RunLater::InstanceMethodJob).with(subject, 'crash').exactly(:once)
+        expect { subject.crash_later }.to have_enqueued_job(RunLater::InstanceMethodJob).with(subject, 'crash').exactly(:once).on_queue(:default)
+      end
+    end
+
+    describe 'Comment#call_later on low queue' do
+      subject { Comment.create }
+
+      it 'queues the instance method job' do
+        expect { subject.call_me_later }.to have_enqueued_job(RunLater::InstanceMethodJob).with(subject, 'call_me').exactly(:once).on_queue(:low)
       end
     end
   end

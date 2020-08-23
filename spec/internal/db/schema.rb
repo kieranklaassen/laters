@@ -5,4 +5,6 @@ ActiveRecord::Schema.define do
     t.string :name
     t.string :location
   end
+
+  create_table :comments
 end
