@@ -20,9 +20,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'rails', '>= 4.2'
   spec.add_dependency 'zeitwerk'
-
-  spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'combustion', '~> 1.3'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'sqlite3'
 end
