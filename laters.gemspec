@@ -19,5 +19,4 @@ Gem::Specification.new do |spec|
   spec.files = Dir['Rakefile', '*.{md,txt}', '{app,lib}/**/*']
 
   spec.add_dependency 'rails', '>= 4.2'
-  spec.add_dependency 'zeitwerk'
 end
