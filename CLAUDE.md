@@ -27,4 +27,4 @@ The gem follows standard Rails gem structure with:
 - Test suite uses RSpec with Combustion for Rails engine testing
 - Queue configuration via `run_in_queue` class method
 - Callbacks: `before_laters`, `after_laters`, `around_laters`
-- Compatible with Rails 4.2 through 8
+- Compatible with Rails 5.0 through 8 and Ruby 3.0 through 3.4

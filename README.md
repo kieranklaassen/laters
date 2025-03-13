@@ -5,7 +5,7 @@
 Run any instance_method of ActiveRecord models via a job by adding `_later` to it. Laters, means See you later in
 Dutch 🇳🇱
 
-Compatible with Rails 4.2 through 8 and Ruby 2.7 through 3.4.
+Compatible with Rails 5.0 through 8 and Ruby 3.0 through 3.4.
 
 
 ## Installation
@@ -63,7 +63,27 @@ class User < ApplicationRecord
 end
 ```
 
-If you need callbacks, they are provided as standart model callbacks:
+### Scheduling Options
+
+You can use ActiveJob's scheduling options when calling methods with `_later`:
+
+```rb
+# Run 5 minutes from now
+user.send_welcome_email_later(wait: 5.minutes)
+
+# Run at a specific time
+user.send_welcome_email_later(wait_until: 1.day.from_now)
+
+# Set a priority (if supported by your queue adapter)
+user.send_welcome_email_later(priority: 10)
+
+# With method arguments
+user.send_email_later('Welcome!', cc: admin@example.com, wait: 10.minutes)
+```
+
+### Callbacks
+
+If you need callbacks, they are provided as standard model callbacks:
 
 ```rb
 class User < ApplicationRecord

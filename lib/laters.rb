@@ -1,4 +1,6 @@
 require 'laters/version'
+
+require 'active_support'
 require 'active_model'
 require 'active_job'
 require 'laters/concern'

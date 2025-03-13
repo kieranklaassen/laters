@@ -18,9 +18,14 @@ else
   gem 'rails', '~> 7.0.0'
 end
 
-gem "sqlite3"
-gem "rake", "~> 13.0"
-gem "rspec", "~> 3.12"
+# Required for Ruby 3.0+ and Rails 7+ compatibility
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
+
+gem "sqlite3", "~> 1.4"
+gem "rake"
+gem "rspec"
 gem "rspec-rails"
-gem 'combustion', '~> 1.3'
-gem "rubocop", "~> 1.25.0"
+gem 'combustion'
+gem "rubocop"

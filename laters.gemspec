@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Deferrable empowers a class to run every single defined method wrapped in an ActiveJob of any class that includes it'
   spec.homepage      = 'https://github.com/kieranklaassen/laters'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0', '< 3.5')
+  spec.required_ruby_version = Gem::Requirement.new('>= 3.0.0', '< 3.5')
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/kieranklaassen/laters'
@@ -18,5 +18,6 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['Rakefile', '*.{md,txt}', '{app,lib}/**/*']
 
-  spec.add_dependency 'rails', '>= 4.2', '< 9'
+  spec.add_dependency 'rails', '>= 5.0', '< 9'
+  spec.add_dependency 'thor', '>= 1.2.0' # Use newer thor version to fix DidYouMean deprecation
 end
