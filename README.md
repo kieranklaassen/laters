@@ -5,6 +5,8 @@
 Run any instance_method of ActiveRecord models via a job by adding `_later` to it. Laters, means See you later in
 Dutch 🇳🇱
 
+Compatible with Rails 4.2 through 8 and Ruby 2.7 through 3.4.
+
 
 ## Installation
 
@@ -26,7 +28,7 @@ class User < ApplicationRecord
   include Laters::Concern
 
   after_create_commit :notify_user_later
-  after_commit :refresh_cache_later
+  after_commit :generate_ai_summary_later
 
   private
 
@@ -35,8 +37,18 @@ class User < ApplicationRecord
     Sms.send(to: user.phone, message: 'Hey!')
   end
 
-  def refresh_cache!
-    # Expensive calculation
+  def generate_ai_summary
+    # Call Claude API to generate a summary asynchronously
+    prompt = "Summarize this user profile: #{name}, #{bio}"
+    
+    response = AnthropicClient.complete(
+      model: "claude-3-7-sonnet",
+      prompt: prompt,
+      max_tokens: 150
+    )
+    
+    # Store the AI-generated summary
+    update(ai_summary: response.completion)
   end
 end
 ```

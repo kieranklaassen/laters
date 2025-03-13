@@ -19,11 +19,11 @@ module Laters
 
     private
 
-    def method_missing(method, *args, &block)
+    def method_missing(method, *args, **kwargs, &block)
       if (method_to_call = deferrable_method_name(method))
         InstanceMethodJob
           .set(queue: self.class.job_queue || :default)
-          .perform_later(self, method_to_call, *args)
+          .perform_later(self, method_to_call, *args, **kwargs)
       else
         super
       end

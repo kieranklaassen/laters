@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Deferrable empowers a class to run every single defined method wrapped in an ActiveJob of any class that includes it'
   spec.homepage      = 'https://github.com/kieranklaassen/laters'
   spec.license       = 'MIT'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.7.0', '< 3.5')
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/kieranklaassen/laters'
@@ -18,5 +18,5 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir['Rakefile', '*.{md,txt}', '{app,lib}/**/*']
 
-  spec.add_dependency 'rails', '>= 4.2'
+  spec.add_dependency 'rails', '>= 4.2', '< 9'
 end
